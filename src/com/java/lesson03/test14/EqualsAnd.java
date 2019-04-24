@@ -1,4 +1,4 @@
-package com.java.lesson3.test14;
+package com.java.lesson03.test14;
 
 public class EqualsAnd {
     public static void main(String[] args) {

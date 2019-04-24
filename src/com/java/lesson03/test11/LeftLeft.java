@@ -1,4 +1,4 @@
-package com.java.lesson3.test11;
+package com.java.lesson03.test11;
 
 public class LeftLeft {
     public static void main(String[] args) {

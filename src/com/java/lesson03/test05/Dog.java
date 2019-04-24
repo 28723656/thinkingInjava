@@ -1,4 +1,4 @@
-package com.java.lesson3.test05;
+package com.java.lesson03.test05;
 
 public class Dog {
     String name;

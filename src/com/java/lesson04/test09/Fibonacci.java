@@ -1,4 +1,4 @@
-package com.java.lesson4.test09;
+package com.java.lesson04.test09;
 
 public class Fibonacci {
     public static void main(String[] args) {

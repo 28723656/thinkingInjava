@@ -1,4 +1,4 @@
-package com.java.lesson4.test10;
+package com.java.lesson04.test10;
 
 public class FourNumber {
     public static void main(String[] args) {

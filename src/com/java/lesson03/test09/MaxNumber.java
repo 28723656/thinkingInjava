@@ -1,4 +1,4 @@
-package com.java.lesson3.test09;
+package com.java.lesson03.test09;
 
 /**
  * 显示float和double 的最大值，用指数

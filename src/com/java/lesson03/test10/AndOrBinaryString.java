@@ -1,4 +1,4 @@
-package com.java.lesson3.test10;
+package com.java.lesson03.test10;
 
 public class AndOrBinaryString {
     public static void main(String[] args) {

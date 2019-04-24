@@ -1,4 +1,4 @@
-package com.java.lesson3.test08;
+package com.java.lesson03.test08;
 
 public class Number {
     public static void main(String[] args) {
