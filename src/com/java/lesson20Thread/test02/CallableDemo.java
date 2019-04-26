@@ -14,10 +14,9 @@ public class CallableDemo {
         for(int i=0;i<10;i++){
             results.add(exec.submit(new TaskWithResult(i)));
         }
-
         for(Future<String > fs :results){
             try {
-                fs.get();
+                System.out.println(fs.get());
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (ExecutionException e) {
