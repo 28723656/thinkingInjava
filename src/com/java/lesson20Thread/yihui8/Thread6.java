@@ -37,8 +37,8 @@ public class Thread6 {
             System.out.println(false);
             return;
         }*/
-
         boolean searchOK = false;
+
 
 
         for (int k = 0; k < userNumArr.length; k++) {
@@ -47,6 +47,9 @@ public class Thread6 {
             Integer inputNumber = Integer.parseInt(userNumArr[k]);
 
             for (int i = 0; i < 8; i++) {
+                // 首次进入的时候指定没有遍历完
+                searchOK = false;
+
                 for (int j = 0; j < 8; j++) {
 
 
@@ -63,7 +66,7 @@ public class Thread6 {
 
                     } else {
                         //  空间不足
-                        System.out.println(false);
+                        System.out.print(false+" ");
                         searchOK = true;
                         break;
                     }

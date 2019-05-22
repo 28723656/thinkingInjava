@@ -41,5 +41,44 @@ public class Util {
       return null;
     }
 
+    // 获取数组中 空闲的个数
+    public static Integer getEmptyCount(int[][] arr) {
+        int count = 0;
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (arr[i][j] == 0) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+
+    //获取所有的素数集合
+    public static  ArrayList<Integer> getPrimeNumberList(Integer maxNum) {
+
+        ArrayList<Integer> primeNumberList = new ArrayList<>();
+
+        boolean flag;
+        for (int i = 2; i < maxNum; i++) {
+            flag = false;
+            for (int j = 2; j <= Math.sqrt(i); j++) {
+                if (i % j == 0) {
+                    flag = true;
+                    break;
+                }
+            }
+            if (flag == false) {
+                primeNumberList.add(i);
+            }
+        }
+
+        return primeNumberList;
+
+    }
+
+
+
 
 }
