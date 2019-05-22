@@ -9,5 +9,6 @@ public class TestDecimal {
 
         String format = String.format("%.2f", (double)334 / 10000 * 100);
         System.out.println(format);
+        System.out.println("最大的Int值"+String.format("%.2e",(double)Integer.MAX_VALUE));
     }
 }

@@ -31,6 +31,8 @@ public class PossibleCount {
                 System.out.println(i + "次出现：" + arr[i]+"\t\t百分比:"+formatNumber+"%\t\t\t"+"结果数:"+getC50(i));
             }
         }
+
+        System.out.println("最大的Int值为：\t\t\t\t\t\t\t\t\t"+String.format("%.2e",(double)Integer.MAX_VALUE));
     }
 
     // 获得C20/50
