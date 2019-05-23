@@ -9,27 +9,25 @@ public class Thread8 {
         // 处理输入
         Scanner scanner = new Scanner(System.in);
         //第一行的数 k*k的矩阵
-        Integer row =Integer.parseInt(scanner.nextLine().trim());
+        Integer row = Integer.parseInt(scanner.nextLine().trim());
 
         // k*k  -1表示占用 0表示空闲
         int[][] arr = new int[row][row];
 
 
-
         // 获取 k*k以内的所有素数
-        ArrayList<Integer> numList = Util.getPrimeNumberList(row*row);
+        ArrayList<Integer> numList = Util.getPrimeNumberList(row * row);
 
         // 初始化   素数置为-1，其他空闲的置位0
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < row; j++) {
-               if( numList.contains(i*row+j)){
-                   arr[i][j] = -1;
-               }else{
-                   arr[i][j] = 0;
-               }
+                if (numList.contains(i * row + j)) {
+                    arr[i][j] = -1;
+                } else {
+                    arr[i][j] = 0;
+                }
             }
         }
-
 
 
         //输入第二行： 毫无意义的一个数
@@ -43,7 +41,6 @@ public class Thread8 {
 
         //第一行的显示结果，保存在这个集合中
         ArrayList<Object> resultOne = new ArrayList<>();
-
 
 
         // 处理中。。。
@@ -67,7 +64,7 @@ public class Thread8 {
                             // 强势插入
                             inputNumber--;
                             // 标记一下   哪个序号占用的就把结果标记为哪个序号
-                            arr[i][j] = k+1;
+                            arr[i][j] = k + 1;
                         }
 
                     } else {
@@ -84,7 +81,7 @@ public class Thread8 {
                     if (inputNumber <= 0) {
 
                         // 忍住，这里也不能输出
-                      //  System.out.print(i * 8 + j + " ");
+                        //  System.out.print(i * 8 + j + " ");
                         resultOne.add(i * 8 + j);
                         searchOK = true;
                         break;
@@ -108,29 +105,29 @@ public class Thread8 {
 
         // 输出的第一行
         // 输出第一行的结果
-        for(Object object :resultOne){
-            System.out.print(object+" ");
+        for (Object object : resultOne) {
+            System.out.print(object + " ");
         }
         // 换行
         System.out.println();
 
 
-        for(int m=0;m<nextLine.length;m++){
+        for (int m = 0; m < nextLine.length; m++) {
             // 获得用户输入的序号
             Integer orderNum = Integer.parseInt(nextLine[m].substring(1));
 
             // 遍历得到用户输入的数字的 对应的序号
             // 这里要加一个判断，如果一个都没有输出的话，就输出false
             Integer outPutCount = 0;
-            for(int i=0;i<8;i++){
-                for(int j=0;j<8;j++){
-                    if(arr[i][j]==orderNum){
-                        System.out.print(i*8+j+" ");
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 8; j++) {
+                    if (arr[i][j] == orderNum) {
+                        System.out.print(i * 8 + j + " ");
                         outPutCount++;
                     }
                 }
             }
-            if(outPutCount ==0){
+            if (outPutCount == 0) {
                 System.out.print(false);
             }
 
@@ -140,10 +137,7 @@ public class Thread8 {
         }
 
 
-
-
     }
-
 
 
 }

@@ -1,6 +1,5 @@
 package com.java.lesson20Thread.yihui8;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Thread5 {
@@ -9,12 +8,11 @@ public class Thread5 {
         int[][] arr = new int[8][8];
 
         // 初始化
-        for(int i=0;i<8;i++){
-            for(int j=0;j<8;j++){
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
                 arr[i][j] = 0;
             }
         }
-
 
 
         // 添加占用的
@@ -29,38 +27,36 @@ public class Thread5 {
         Scanner scanner = new Scanner(System.in);
         int userInputNumber = scanner.nextInt();
 
-        if(userInputNumber>58){
+        if (userInputNumber > 58) {
             System.out.println(false);
             return;
         }
 
         boolean searchOK = false;
 
-        for(int i=0;i<8;i++){
-            for(int j=0;j<8;j++){
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
                 // 空闲
-                if(arr[i][j] == 0){
+                if (arr[i][j] == 0) {
                     // 强势插入
                     userInputNumber--;
                     // 标记一下
                     arr[i][j] = 1;
                 }
 
-                if(userInputNumber <=0){
-                    System.out.println(i*8+j);
+                if (userInputNumber <= 0) {
+                    System.out.println(i * 8 + j);
                     searchOK = true;
                     break;
                 }
 
             }
-            if(searchOK){
+            if (searchOK) {
                 break;
             }
         }
 
     }
-
-
 
 
 }

@@ -1,6 +1,5 @@
 package com.java.lesson20Thread.yihui8;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Thread1 {
@@ -15,20 +14,18 @@ public class Thread1 {
         String[] s2 = thread2.split(" ");
         String[] s3 = thread3.split(" ");
 
-        int[] arr = new int[]{Integer.parseInt(s1[1]),Integer.parseInt(s2[1]),Integer.parseInt(s3[1])};
+        int[] arr = new int[]{Integer.parseInt(s1[1]), Integer.parseInt(s2[1]), Integer.parseInt(s3[1])};
         Integer count = Util.getMaxFromArr(arr);
 
-        if(count == 0){
+        if (count == 0) {
             System.out.println(s1[0]);
-        }else if(count ==1){
+        } else if (count == 1) {
             System.out.println(s2[0]);
-        }else{
+        } else {
             System.out.println(s3[0]);
         }
 
     }
-
-
 
 
 }
