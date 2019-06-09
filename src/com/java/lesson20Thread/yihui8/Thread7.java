@@ -41,7 +41,6 @@ public class Thread7 {
         ArrayList<Object> resultOne = new ArrayList<>();
 
 
-
         // 处理中。。。
         for (int k = 0; k < userNumArr.length; k++) {
 
@@ -63,7 +62,7 @@ public class Thread7 {
                             // 强势插入
                             inputNumber--;
                             // 标记一下   哪个序号占用的就把结果标记为哪个序号
-                            arr[i][j] = k+1;
+                            arr[i][j] = k + 1;
                         }
 
                     } else {
@@ -80,7 +79,7 @@ public class Thread7 {
                     if (inputNumber <= 0) {
 
                         // 忍住，这里也不能输出
-                      //  System.out.print(i * 8 + j + " ");
+                        //  System.out.print(i * 8 + j + " ");
                         resultOne.add(i * 8 + j);
                         searchOK = true;
                         break;
@@ -101,8 +100,8 @@ public class Thread7 {
         Integer orderNum = Integer.parseInt(nextLine.substring(1));
 
         // 输出第一行的结果
-        for(Object object :resultOne){
-            System.out.print(object+" ");
+        for (Object object : resultOne) {
+            System.out.print(object + " ");
         }
         // 换行
         System.out.println();
@@ -110,21 +109,20 @@ public class Thread7 {
         // 遍历得到用户输入的数字的 对应的序号
         // 这里要加一个判断，如果一个都没有输出的话，就输出false
         Integer outPutCount = 0;
-        for(int i=0;i<8;i++){
-            for(int j=0;j<8;j++){
-                if(arr[i][j]==orderNum){
-                    System.out.print(i*8+j+" ");
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (arr[i][j] == orderNum) {
+                    System.out.print(i * 8 + j + " ");
                     outPutCount++;
                 }
             }
         }
-        if(outPutCount ==0){
+        if (outPutCount == 0) {
             System.out.print(false);
         }
 
 
     }
-
 
 
 }

@@ -40,7 +40,6 @@ public class Thread6 {
         boolean searchOK = false;
 
 
-
         for (int k = 0; k < userNumArr.length; k++) {
 
             //需要填充的个数   3,3,3
@@ -66,7 +65,7 @@ public class Thread6 {
 
                     } else {
                         //  空间不足
-                        System.out.print(false+" ");
+                        System.out.print(false + " ");
                         searchOK = true;
                         break;
                     }

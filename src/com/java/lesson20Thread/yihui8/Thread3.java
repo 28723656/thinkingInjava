@@ -8,7 +8,7 @@ public class Thread3 {
         Scanner scanner = new Scanner(System.in);
 
         // 用户输入的个数
-        Integer num =Integer.parseInt(scanner.nextLine()) ;
+        Integer num = Integer.parseInt(scanner.nextLine());
 
         // 用户输入列表
         /**
@@ -30,10 +30,10 @@ public class Thread3 {
         Integer runTimes = 0;
 
 
-        if(num>100 || num <0){
+        if (num > 100 || num < 0) {
             System.out.println("0-100,ok?");
-        }else{
-            for(int i=0;i<num;i++){
+        } else {
+            for (int i = 0; i < num; i++) {
                 String tempStr = scanner.nextLine();
                 stringArrayList.add(tempStr.split(" "));
             }
@@ -41,7 +41,7 @@ public class Thread3 {
 
 
         // 获取程序总共要运行的时间,并且分别把数据纵向切割
-        for(int i = 0;i<stringArrayList.size();i++){
+        for (int i = 0; i < stringArrayList.size(); i++) {
             runTimes += Integer.parseInt(stringArrayList.get(i)[2]);
             nameList.add(stringArrayList.get(i)[0]);
             priorityList.add(Integer.parseInt(stringArrayList.get(i)[1]));
@@ -49,21 +49,19 @@ public class Thread3 {
         }
 
 
-        while (runTimes > 0){
+        while (runTimes > 0) {
             // 获取当前最大的优先级对应的序号
             Integer orderNum = Util.getMaxFromList(priorityList);
             // 输出当前优先级最高的一个
-            System.out.print(nameList.get(orderNum)+"\t");
+            System.out.print(nameList.get(orderNum) + "\t");
             // 优先级 -1   执行时间 -1   需要运行的时间 -1
-            priorityList.set(orderNum,priorityList.get(orderNum)-1);
-            leftTimeList.set(orderNum,leftTimeList.get(orderNum)-1);
-            runTimes --;
+            priorityList.set(orderNum, priorityList.get(orderNum) - 1);
+            leftTimeList.set(orderNum, leftTimeList.get(orderNum) - 1);
+            runTimes--;
         }
 
 
     }
-
-
 
 
 }
