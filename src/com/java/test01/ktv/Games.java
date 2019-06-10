@@ -10,179 +10,144 @@ public class Games {
 
     public static void main(String[] args) {
 
+        finalResult(3,false);
+        finalResult(3,true);
+
+    }
+
+
+    // 算出最后的结果  参数一 参加人数   参数二 时候开始猜测癞子
+    public static void finalResult(Integer personNum,boolean flag){
+
+        List<List<Dice>> allPlayers = new ArrayList<>();
         // 1.求出2个玩家的所有可能性
         List<Dice> playerA = getAllChance();
         List<Dice> playerB = getAllChance();
+        List<Dice> playerC = getAllChance();
+        allPlayers.add(playerA);
+        allPlayers.add(playerB);
+        allPlayers.add(playerC);
 
 
-        int num3_2WinCount = 0;
-        int num3_3WinCount = 0;
-        int num3_4WinCount = 0;
-        int num3_5WinCount = 0;
-        int num3_6WinCount = 0;
-
+        int num4_1WinCount = 0;
         int num4_2WinCount = 0;
-        int num4_3WinCount = 0;
-        int num4_4WinCount = 0;
-        int num4_5WinCount = 0;
-        int num4_6WinCount = 0;
 
+        int num5_1WinCount = 0;
         int num5_2WinCount = 0;
-        int num5_3WinCount = 0;
-        int num5_4WinCount = 0;
-        int num5_5WinCount = 0;
-        int num5_6WinCount = 0;
 
+        int num6_1WinCount = 0;
         int num6_2WinCount = 0;
-        int num6_3WinCount = 0;
-        int num6_4WinCount = 0;
-        int num6_5WinCount = 0;
-        int num6_6WinCount = 0;
 
         int num7_2WinCount = 0;
-        int num7_3WinCount = 0;
-        int num7_4WinCount = 0;
-        int num7_5WinCount = 0;
-        int num7_6WinCount = 0;
+
+        int num8_2WinCount = 0;
+
+        int num9_2WinCount = 0;
 
         int totalCount = 0;
 
+
         // 3个2 我说开 赢的概率
-        for(int i=0;i<playerA.size();i++){
+        int count = 0;
+        for(int i=0;i<allPlayers.get(0).size();i++){
+            count++;
 
-            Dice diceA = playerA.get(i);
-
+            Dice diceA = allPlayers.get(0).get(i);
             //   3 3 4 1 2
             //  返回  map 1 1   2 1   3 2   4 1  5 0  6 0
-            Map<Integer,Integer> mapA = new HashMap<>();
-            mapA.put(1, numberCount(diceA, 1));
-            mapA.put(2, numberCount(diceA, 2));
-            mapA.put(3, numberCount(diceA, 3));
-            mapA.put(4, numberCount(diceA, 4));
-            mapA.put(5, numberCount(diceA, 5));
-            mapA.put(6, numberCount(diceA, 6));
+            Map<Integer,Integer> mapA =countMapCountToCount(diceA);
+
+            for(int j= 0;j<allPlayers.get(1).size();j++){
+
+                Dice diceB = allPlayers.get(1).get(j);
+                //   3 3 4 1 2
+                //  返回  map 1 1   2 1   3 2   4 1  5 0  6 0
+                Map<Integer,Integer> mapB = countMapCountToCount(diceB);
+
+                for(int k = 0;k<allPlayers.get(2).size();k++){
+                    Dice diceC = allPlayers.get(2).get(k);
+                    //   3 3 4 1 2
+                    //  返回  map 1 1   2 1   3 2   4 1  5 0  6 0
+                    Map<Integer,Integer> mapC = countMapCountToCount(diceC);
 
 
-            Dice diceB = playerB.get(i);
-            //   3 3 4 1 2
-            //  返回  map 1 1   2 1   3 2   4 1  5 0  6 0
-            Map<Integer,Integer> mapB = new HashMap<>();
-            mapB.put(1, numberCount(diceB, 1));
-            mapB.put(2, numberCount(diceB, 2));
-            mapB.put(3, numberCount(diceB, 3));
-            mapB.put(4, numberCount(diceB, 4));
-            mapB.put(5, numberCount(diceB, 5));
-            mapB.put(6, numberCount(diceB, 6));
+                    // 判断赢得概率  统计3个2开  赢得概率
+                    // 1.1 得到2个玩家 2的个数
 
-            // 判断赢得概率  统计3个2开  赢得概率
-            // 1.1 得到2个玩家 2的个数
+                    int initNum1 = mapA.get(1)+mapB.get(1)+mapC.get(1);
+                    int num1 = flag?0:mapA.get(1)+mapB.get(1)+mapC.get(1);
 
-            int num1 = mapA.get(1)+mapB.get(1);
-
-            int num2 = mapA.get(2)+mapB.get(2);
-            int num3 = mapA.get(3)+mapB.get(3);
-            int num4 = mapA.get(4)+mapB.get(4);
-            int num5 = mapA.get(5)+mapB.get(5);
-            int num6 = mapA.get(6)+mapB.get(6);
+                    int num2 = mapA.get(2)+mapB.get(2)+mapC.get(2);
 
 
-            totalCount ++;
-            // 3个的情况
-            if(num2+num1<3){
-                num3_2WinCount ++;
-            }
-            if(num3+num1<3){
-                num3_3WinCount ++;
-            }
-            if(num4+num1<3){
-                num3_4WinCount ++;
-            }
-            if(num5+num1<3){
-                num3_5WinCount ++;
-            }
-            if(num6+num1<3){
-                num3_6WinCount ++;
-            }
+                    totalCount ++;
+
+                    // 4个的情况
+                    if(initNum1<4){
+                        num4_1WinCount ++;
+                    }
+                    if(num2+num1<4){
+                        num4_2WinCount ++;
+                    }
 
 
-            // 4个的情况
-            if(num2+num1<4){
-                num4_2WinCount ++;
-            }
-            if(num3+num1<4){
-                num4_3WinCount ++;
-            }
-            if(num4+num1<4){
-                num4_4WinCount ++;
-            }
-            if(num5+num1<4){
-                num4_5WinCount ++;
-            }
-            if(num6+num1<4){
-                num4_6WinCount ++;
-            }
+                    // 5个的情况
+                    if(initNum1<5){
+                        num5_1WinCount ++;
+                    }
+                    if(num2+num1<5){
+                        num5_2WinCount ++;
+                    }
+
+                    // 6个的情况
+                    if(initNum1<6){
+                        num6_1WinCount ++;
+                    }
+                    if(num2+num1<6){
+                        num6_2WinCount ++;
+                    }
+
+                    if(num2+num1<7){
+                        num7_2WinCount ++;
+                    }
+
+                    if(num2+num1<8){
+                        num8_2WinCount ++;
+                    }
+                    if(num2+num1<9){
+                        num9_2WinCount ++;
+                    }
 
 
-            // 5个的情况
-            if(num2+num1<5){
-                num5_2WinCount ++;
-            }
-            if(num3+num1<5){
-                num5_3WinCount ++;
-            }
-            if(num4+num1<5){
-                num5_4WinCount ++;
-            }
-            if(num5+num1<5){
-                num5_5WinCount ++;
-            }
-            if(num6+num1<5){
-                num5_6WinCount ++;
-            }
-
-            // 6个的情况
-            if(num2+num1<6){
-                num6_2WinCount ++;
-            }
-            if(num3+num1<6){
-                num6_3WinCount ++;
-            }
-            if(num4+num1<6){
-                num6_4WinCount ++;
-            }
-            if(num5+num1<6){
-                num6_5WinCount ++;
-            }
-            if(num6+num1<6){
-                num6_6WinCount ++;
-            }
+                }
 
 
-            // 7个的情况
-            if(num2+num1<7){
-                num7_2WinCount ++;
             }
-            if(num3+num1<7){
-                num7_3WinCount ++;
-            }
-            if(num4+num1<7){
-                num7_4WinCount ++;
-            }
-            if(num5+num1<7){
-                num7_5WinCount ++;
-            }
-            if(num6+num1<7){
-                num7_6WinCount ++;
-            }
+
+                System.out.println("执行了"+count+"/"+allPlayers.get(0).size()+"次，当前进度"+String.format("%.2f",count*1.00/allPlayers.get(0).size()*100)+"%");
+
 
         }
 
-        System.out.println("3个2赢的概率："+String.format("%.2f",num3_2WinCount*1.00/totalCount*100)+"%");
+        if(flag){
+            System.out.println("开局猜测癞子个数的情况：-----------");
+            System.out.println("4个1赢的概率："+String.format("%.2f",num4_1WinCount*1.00/totalCount*100)+"%");
+            System.out.println("5个1赢的概率："+String.format("%.2f",num5_1WinCount*1.00/totalCount*100)+"%");
+            System.out.println("6个1赢的概率："+String.format("%.2f",num6_1WinCount*1.00/totalCount*100)+"%");
+            System.out.println("----------------------");
+        }else{
+            System.out.println("开局不测癞子个数的情况：-----------");
+        }
         System.out.println("4个2赢的概率："+String.format("%.2f",num4_2WinCount*1.00/totalCount*100)+"%");
         System.out.println("5个2赢的概率："+String.format("%.2f",num5_2WinCount*1.00/totalCount*100)+"%");
         System.out.println("6个2赢的概率："+String.format("%.2f",num6_2WinCount*1.00/totalCount*100)+"%");
         System.out.println("7个2赢的概率："+String.format("%.2f",num7_2WinCount*1.00/totalCount*100)+"%");
+        System.out.println("8个2赢的概率："+String.format("%.2f",num8_2WinCount*1.00/totalCount*100)+"%");
+        System.out.println("9个2赢的概率："+String.format("%.2f",num9_2WinCount*1.00/totalCount*100)+"%");
+        System.out.println("---------------------------------------------------------------------------");
     }
+
+
 
 
 
@@ -218,7 +183,7 @@ public class Games {
     }
 
 
-    // 传入一个Dice对象，和数字，返回这个数字出现的次数
+    // 传入一个Dice对象，和数字，返回这个数字出现的次数   3 3 4 1 2
     public static  Integer numberCount(Dice dice,Integer num){
         int count = 0;
        if(dice.getOne() == num){
@@ -237,6 +202,21 @@ public class Games {
             count++;
         }
         return count;
+    }
+
+
+    // 统计一个对象中  1，2，3，4，5，6出现的个数
+    public static Map<Integer,Integer> countMapCountToCount(Dice dice){
+        //   3 3 4 1 2
+        //  返回  map 1 1   2 1   3 2   4 1  5 0  6 0
+        Map<Integer,Integer> map = new HashMap<>();
+        map.put(1, numberCount(dice, 1));
+        map.put(2, numberCount(dice, 2));
+        map.put(3, numberCount(dice, 3));
+        map.put(4, numberCount(dice, 4));
+        map.put(5, numberCount(dice, 5));
+        map.put(6, numberCount(dice, 6));
+        return map;
     }
 
 }
